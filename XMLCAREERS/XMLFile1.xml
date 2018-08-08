@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content>
+  <Div>
+    <Text>Awesome Companies!!</Text>
+    <Link>
+      <Href>https://www.google.com</Href>
+      <Label>Google</Label>
+    </Link>
+    <Link>
+      <Href>https://www.amazon.com</Href>
+      <Label>Amazon</Label>
+    </Link>
+  </Div>
+  <Div>
+    <Text>Amazing Founders...</Text>
+    <Link>
+      <Href>https://www.microsoft.com</Href>
+      <Label>Microsoft</Label>
+    </Link>
+    <Link>
+      <Href>https://www.ElonMusk.com</Href>
+      <Label>Elon Musk</Label>
+    </Link>
+  </Div>
+</Content>

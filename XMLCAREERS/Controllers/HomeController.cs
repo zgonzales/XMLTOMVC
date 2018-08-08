@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using XMLCAREERS.Models;
+using System.Xml;
+using System.Collections.Generic;
 
 namespace XMLCAREERS.Controllers
 {
@@ -12,12 +12,33 @@ namespace XMLCAREERS.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            List<Div> divs = new List<Div>();
+            List<Link> links = new List<Link>();
+            XmlDocument doc = new XmlDocument();
+
+            doc.Load("XMLFile1.xml");
+
+            foreach (XmlNode node in doc.SelectNodes("/Content/Div"))
+            {
+                links.Add(new Link {
+                    Href = node["Link"]["Href"].InnerText,
+                    Label = node["Link"]["Label"].InnerText
+                });
+
+                divs.Add(new Div
+                {
+                    Text = node["Text"].InnerText,
+                    Links = links
+                });
+            }
+
+            return View(divs);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+
+            
 
             return View();
         }
